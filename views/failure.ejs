@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <span class="eyebrow">Failure Page</span>
+        <h1><%= title %></h1>
+        <div class="message error">
+          <%= message %>
+        </div>
+        <div class="button-row" style="margin-top: 24px;">
+          <a class="button" href="/prescriptions/search">Go to Search</a>
+          <a class="button secondary" href="/">Back to Home</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

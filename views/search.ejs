@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <span class="eyebrow">Search Module</span>
+        <h1>Find a Prescription Record</h1>
+        <p>Enter both unique identifiers to view the full prescription record.</p>
+
+        <form action="/prescriptions/search" method="post" data-search-form>
+          <div class="field">
+            <label for="prescriptionId">Prescription ID</label>
+            <input id="prescriptionId" name="prescriptionId" maxlength="10" required value="<%= values.prescriptionId %>" />
+          </div>
+
+          <div class="field">
+            <label for="patientId">Patient ID</label>
+            <input id="patientId" name="patientId" maxlength="10" required value="<%= values.patientId %>" />
+          </div>
+
+          <div class="button-row">
+            <button type="submit">Search Record</button>
+            <a class="button secondary" href="/">Back to Home</a>
+          </div>
+        </form>
+      </section>
+    </main>
+    <script src="/js/validation.js"></script>
+  </body>
+</html>

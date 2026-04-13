@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <span class="eyebrow">Success Page</span>
+        <h1>Prescription Updated Successfully</h1>
+        <div class="message success">
+          The prescription for <strong><%= record.patientName %></strong> was updated successfully.
+        </div>
+
+        <div class="facts" style="margin-top: 20px;">
+          <div class="fact"><strong>Prescription ID</strong><span><%= record.prescriptionId %></span></div>
+          <div class="fact"><strong>Updated Follow-up Date</strong><span><%= record.followUpDate %></span></div>
+          <div class="fact"><strong>Updated Pharmacy</strong><span><%= record.pharmacyPreference %></span></div>
+          <div class="fact"><strong>Status</strong><span class="status open"><%= record.status %></span></div>
+        </div>
+
+        <div class="button-row" style="margin-top: 24px;">
+          <a class="button" href="/prescriptions/search">Update Another Prescription</a>
+          <a class="button secondary" href="/">Return Home</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

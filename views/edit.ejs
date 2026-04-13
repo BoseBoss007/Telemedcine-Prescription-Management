@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <span class="eyebrow">Update Module</span>
+        <h1>Modify Selected Prescription Fields</h1>
+        <p>
+          Only the permitted fields are editable. The update will succeed only if the prescription status is
+          still open.
+        </p>
+
+        <div class="facts">
+          <div class="fact"><strong>Prescription ID</strong><span><%= record.prescriptionId %></span></div>
+          <div class="fact"><strong>Patient ID</strong><span><%= record.patientId %></span></div>
+          <div class="fact"><strong>Patient Name</strong><span><%= record.patientName %></span></div>
+          <div class="fact">
+            <strong>Status</strong>
+            <span class="status <%= record.status.toLowerCase() %>"><%= record.status %></span>
+          </div>
+        </div>
+
+        <form
+          action="/prescriptions/<%= record.prescriptionId %>/<%= record.patientId %>/update"
+          method="post"
+          data-update-form
+        >
+          <div class="field">
+            <label for="followUpDate">Follow-up Date</label>
+            <input id="followUpDate" type="date" name="followUpDate" value="<%= record.followUpDate %>" required />
+          </div>
+
+          <div class="field">
+            <label for="pharmacyPreference">Pharmacy Preference</label>
+            <input
+              id="pharmacyPreference"
+              name="pharmacyPreference"
+              value="<%= record.pharmacyPreference %>"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="dosageInstructions">Dosage Instructions</label>
+            <textarea id="dosageInstructions" name="dosageInstructions" required><%= record.dosageInstructions %></textarea>
+          </div>
+
+          <div class="button-row">
+            <button type="submit">Save Changes</button>
+            <a class="button secondary" href="/prescriptions/search">Cancel</a>
+          </div>
+        </form>
+      </section>
+    </main>
+    <script src="/js/validation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "telemedicine-prescription-management",
+  "version": "1.0.0",
+  "description": "Case study application for telemedicine prescription search and update management.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "telemedicine",
+    "express",
+    "case-study"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "mongodb": "^7.1.1"
+  }
+}

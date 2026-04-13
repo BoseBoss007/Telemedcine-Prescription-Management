@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <span class="eyebrow">Record Details</span>
+        <h1><%= record.prescriptionId %> for <%= record.patientName %></h1>
+        <p>All prescription details are shown below because the record was found successfully.</p>
+
+        <div class="facts">
+          <div class="fact"><strong>Patient ID</strong><span><%= record.patientId %></span></div>
+          <div class="fact"><strong>Doctor</strong><span><%= record.doctorName %></span></div>
+          <div class="fact"><strong>Consultation Date</strong><span><%= record.consultationDate %></span></div>
+          <div class="fact"><strong>Diagnosis</strong><span><%= record.diagnosis %></span></div>
+          <div class="fact"><strong>Follow-up Date</strong><span><%= record.followUpDate %></span></div>
+          <div class="fact"><strong>Pharmacy Preference</strong><span><%= record.pharmacyPreference %></span></div>
+          <div class="fact"><strong>Dosage Instructions</strong><span><%= record.dosageInstructions %></span></div>
+          <div class="fact">
+            <strong>Status</strong>
+            <span class="status <%= record.status.toLowerCase() %>"><%= record.status %></span>
+          </div>
+        </div>
+
+        <div class="panel" style="padding: 20px; margin-top: 24px;">
+          <strong>Medicines</strong>
+          <ul>
+            <% record.medicines.forEach((medicine) => { %>
+              <li><%= medicine %></li>
+            <% }) %>
+          </ul>
+        </div>
+
+        <div class="button-row">
+          <a class="button" href="/prescriptions/<%= record.prescriptionId %>/<%= record.patientId %>/edit">Update Allowed Fields</a>
+          <a class="button secondary" href="/prescriptions/search">Search Another Record</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

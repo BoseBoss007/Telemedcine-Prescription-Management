@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <span class="eyebrow">Case Study Domain</span>
+        <h1>Telemedicine Prescription Management</h1>
+        <p>
+          Search prescription records using Prescription ID and Patient ID, review the full record,
+          and update only the allowed fields when the prescription status is still open.
+        </p>
+        <div class="card-strip">
+          <div class="mini-card">
+            <strong>Search Inputs</strong>
+            <p>Prescription ID and Patient ID are both required before loading a record.</p>
+          </div>
+          <div class="mini-card">
+            <strong>Editable Fields</strong>
+            <p>Follow-up date, pharmacy preference, and dosage instructions can be changed.</p>
+          </div>
+          <div class="mini-card">
+            <strong>Business Rule</strong>
+            <p>Records can be updated only if the prescription status remains <strong>OPEN</strong>.</p>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="button" href="/prescriptions/search">Open Search Form</a>
+          <% if (lastViewedId) { %>
+            <span class="hint">Last viewed prescription: <strong><%= lastViewedId %></strong></span>
+          <% } %>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Expected Workflow</h2>
+        <div class="grid">
+          <div class="mini-card">
+            <strong>1. Validate</strong>
+            <p>Client-side and server-side validation check both identifiers before searching.</p>
+          </div>
+          <div class="mini-card">
+            <strong>2. Display</strong>
+            <p>The app shows the complete prescription record only when it exists.</p>
+          </div>
+          <div class="mini-card">
+            <strong>3. Update</strong>
+            <p>Only selected fields are editable and the status rule is enforced before save.</p>
+          </div>
+          <div class="mini-card">
+            <strong>4. Result</strong>
+            <p>A dedicated success or failure page is shown after each action.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
